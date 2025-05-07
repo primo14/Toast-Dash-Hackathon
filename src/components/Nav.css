@@ -1,0 +1,30 @@
+.vertical-nav {
+    width: 15vw; /* Navigation bar takes 15% of the screen width */
+    background: #fff;
+    color: #000;
+    padding: 1rem;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100vh; /* Ensure the nav bar spans the full height */
+    overflow: hidden;
+  }
+  
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  
+  .nav-item {
+    padding: 1rem;
+    width: 100%;
+    cursor: pointer;
+    text-align: left;
+  }
+  
+  .nav-item:hover {
+    background: #d2cdcd;
+  }
