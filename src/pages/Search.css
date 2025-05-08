@@ -6,7 +6,7 @@
     background-color: #FFF;
   }
   .page-content {
-    background: #f5e6c5;
+    background: #00674F;
     border-radius: 50px 0 0 50px;
     width: 80vw;
     display: flex;
@@ -23,8 +23,16 @@
   }
   .search-header h1 {
     font-size: 1rem;
-    color: #283618;
+    color: #F5E6C5;
     margin-bottom: 1rem;
+  }
+  .search-header hr{
+    width: 95%;
+    height: 1px;
+    background-color: #F5E6C5;
+    border: none;
+    margin-left: 0;;
+    
   }
   .search-container {
     
@@ -37,11 +45,7 @@
     flex-direction: column;
   }
   
-  .search-title {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: #333;
-  }
+ 
   
   .search-form {
     display: flex;
@@ -54,7 +58,7 @@
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #fff;
-    color: #333;
+    color: #9F886F;
   }
 
   .search-form label {
@@ -64,6 +68,7 @@
     font-size: 12px;;
     display: flex;
     flex-direction: column; 
+    color:#F5E6C5;
   }
   .search-input {
     width: 100%;

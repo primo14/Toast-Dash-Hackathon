@@ -5,10 +5,10 @@ import './Search.css'; // Create a CSS file for styling
 import {APIProvider, Map} from '@vis.gl/react-google-maps';
 const Search = () => {
 const [results] = useState([
-    { name: 'Textiles', quantity:'500lbs',location: 'Los Angelos,USA', cost: '$300/400lb' },
-    { name: 'Plastic', quantity:'500lbs',location: 'Los Angelos,USA', cost: '$300/500lb' },
-    {  name: 'Sawdust', quantity:'50lbs',location: 'Los Angelos,USA', cost: '$10/5lb' },
-    {  name: 'Sawdust', quantity:'50lbs',location: 'Los Angelos,USA', cost: '$10/5lb' },
+    { name: 'Garment Factory', material: 'Textiles',quantity:'500lbs',location: 'Los Angelos,USA', cost: '$300/400lb' },
+    { name: 'Water Bottle Company', material: 'Plastic',quantity:'500lbs',location: 'Los Angelos,USA', cost: '$300/500lb' },
+    {  name: 'Bob the Builder', material: 'Sawdust',quantity:'50lbs',location: 'Los Angelos,USA', cost: '$10/5lb' },
+    {  name: 'Upa & Co.', material: 'Paper',quantity:'50lbs',location: 'Los Angelos,USA', cost: '$10/5lb' },
   ]);
 
   const [searchInput, setSearchInput] = useState('');
@@ -106,6 +106,7 @@ const [results] = useState([
           {results.map((chat, index) => (
             <li key={index} className="chat-list-item">
               <h6 className="chat-list-name">{chat.name}</h6>
+              <p className="chat-list-preview">{chat.material}</p>
               <p className="chat-list-preview">{chat.location}</p>
               <p className="chat-list-preview">{chat.cost}</p>
               <div className='results-list-buttons'> 
