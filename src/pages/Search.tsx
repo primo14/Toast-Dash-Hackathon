@@ -1,8 +1,45 @@
 
+import { useState } from 'react';
 import Nav from '../components/Nav';
 import './Search.css'; // Create a CSS file for styling
 import {APIProvider, Map} from '@vis.gl/react-google-maps';
 const Search = () => {
+const [results] = useState([
+    { name: 'Textiles', quantity:'500lbs',location: 'Los Angelos,USA', cost: '$300/400lb' },
+    { name: 'Plastic', quantity:'500lbs',location: 'Los Angelos,USA', cost: '$300/500lb' },
+    {  name: 'Sawdust', quantity:'50lbs',location: 'Los Angelos,USA', cost: '$10/5lb' },
+    {  name: 'Sawdust', quantity:'50lbs',location: 'Los Angelos,USA', cost: '$10/5lb' },
+  ]);
+
+  const [searchInput, setSearchInput] = useState('');
+  const [suggestions, setSuggestions] = useState<{ description: string }[]>([]);
+
+  const fetchSuggestions = async (input: string) => {
+    if (!input.trim()) {
+      setSuggestions([]);
+      return;
+    }
+
+    const apiKey = 'AIzaSyCNTXqcUhVTRxPdY-R6wvD82uijIGrn0Ew'; // Replace with your API key
+    const endpoint = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${input}&key=${apiKey}`;
+    try {
+      const response = await fetch(endpoint);
+      const data = await response.json();
+      if (data.predictions) {
+        setSuggestions(data.predictions);
+      }
+    } catch ( error ) {
+      console.error('Error fetching autocomplete suggestions:', error);
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.target.value;
+    setSearchInput(input);
+    fetchSuggestions(input);
+  };
+
+
   return (
     <div className="search-page">
       <Nav /> {/* Use the reusable VerticalNav component */}
@@ -37,7 +74,8 @@ const Search = () => {
               type="text"
               className="search-input"
               placeholder="city, state, or zip code"
-            
+              value={searchInput}
+              onChange={handleInputChange}
             /> </label>
             
           
@@ -45,6 +83,15 @@ const Search = () => {
             Search
           </button>
         </form>
+        {suggestions.length > 0 && (
+            <ul className="autocomplete-suggestions">
+              {suggestions.map((suggestion, index) => (
+                <li key={index} className="autocomplete-item">
+                  {suggestion.description}
+                  </li>
+              ))}
+            </ul>
+          )}
         <div className="search-results">
           <div className="map-container">
            
@@ -54,13 +101,20 @@ const Search = () => {
             </APIProvider>
               
           </div>
-          <div className="results-list">
-            <ul>
-              <li>Result 1</li>
-              <li>Result 2</li>
-              <li>Result 3</li>
-            </ul>
-          </div>
+         
+          <ul className="results-list">
+          {results.map((chat, index) => (
+            <li key={index} className="chat-list-item">
+              <h6 className="chat-list-name">{chat.name}</h6>
+              <p className="chat-list-preview">{chat.location}</p>
+              <p className="chat-list-preview">{chat.cost}</p>
+              <div className='results-list-buttons'> 
+                <button className="results-list-button">s</button>
+                <button className="results-list-button">n</button>
+              </div>
+            </li>
+          ))}
+         </ul>
         </div>
       </div>
       </div>
