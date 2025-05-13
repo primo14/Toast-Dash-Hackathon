@@ -1,0 +1,64 @@
+{
+    "Agricultural Byproducts": [
+      "Sugarcane bagasse",
+      "Wheat straw",
+      "Rice husks",
+      "Corn stalks and husks",
+      "Barley straw",
+      "Coffee pulp/husk",
+      "Cotton stalks",
+      "Coconut coir",
+      "Banana leaves or trunks",
+      "Sunflower stalks",
+      "Peanut shells"
+    ],
+    "Forestry Residues / Wood Industry Waste": [
+      "Sawdust (pine, oak, maple, etc.)",
+      "Wood shavings",
+      "Bark residues",
+      "Wood chips",
+      "Paper pulp waste",
+      "Tree trimmings",
+      "Pine needles"
+    ],
+    "Food Processing Waste": [
+      "Brewer's spent grain",
+      "Fruit peels (orange, banana, etc.)",
+      "Coffee grounds",
+      "Potato peels",
+      "Spent malt from distilleries",
+      "Cocoa husk",
+      "Bakery waste (e.g., old bread)",
+      "Soy pulp (okara)",
+      "Oilseed cakes (e.g., sunflower, sesame)"
+    ],
+    "Textile & Natural Fiber Waste": [
+      "Hemp hurds",
+      "Flax shives",
+      "Jute waste",
+      "Cotton lint residue",
+      "Silk waste (less common)",
+      "Linen scraps",
+      "Kenaf fibers"
+    ],
+    "Construction Biomaterials": [
+      "Straw bale debris",
+      "Insulation panel offcuts (natural)",
+      "Cellulose insulation dust",
+      "Cork fragments",
+      "Wood fiberboard scraps"
+    ],
+    "Paper & Cardboard Waste": [
+      "Cardboard offcuts",
+      "Paper sludge",
+      "Newspaper waste (low-ink)",
+      "Egg cartons (clean)"
+    ],
+    "Experimental/High-Value Waste": [
+      "Hair/fur (keratin-based for special enzymes)",
+      "Leather scraps (bio-leather production)",
+      "Algae biomass",
+      "Spent mushroom substrate (for re-use layering)",
+      "Bioplastic waste (depending on formulation)"
+    ]
+  }

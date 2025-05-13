@@ -1,19 +1,26 @@
+@import url(https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap);
+
+body, .search-page{
+  font-family:'Figtree', sans-serif;
+}
+
 .search-page {
     display: flex;
     align-items: center;
     height: 100vh;
     overflow: hidden;
     background-color: #FFF;
+    overflow: hidden;
   }
   .page-content {
-    background: #00674F;
+    background: #283818;
     border-radius: 50px 0 0 50px;
     width: 80vw;
     display: flex;
     flex-direction: column;
     justify-content: start;
-    height: 100vh;
-   
+    height: 105vh;
+   padding-right:3.55vw;
   }
   .search-header {
   
@@ -22,7 +29,7 @@
     align-items: left;
   }
   .search-header h1 {
-    font-size: 1rem;
+    font-size: 2rem;
     color: #F5E6C5;
     margin-bottom: 1rem;
   }
@@ -36,10 +43,10 @@
   }
   .search-container {
     
-    padding : 1vw 0 3vw 3vw;
+    padding : 1vw 0 0 3vw;
     border-radius: 8px;
     width: 100%;
-    
+    overflow:visible;
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -50,6 +57,7 @@
   .search-form {
     display: flex;
     justify-content: left;
+    
   }
   
   .search-options{
@@ -65,7 +73,7 @@
     padding-left: 2vh;
     text-align: left;
     width: 27%;
-    font-size: 12px;;
+    font-size: 16px;
     display: flex;
     flex-direction: column; 
     color:#F5E6C5;
@@ -77,13 +85,33 @@
     background-color: #fff;
     font-size: 1rem;
     height:12% ;
-
+    color: #283818;
+  }
+  .search-form .autocomplete-suggestions {
+    list-style: none;
+    margin-top:5vh;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 200px;
+    min-height:65px;
+    width:23%;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 1000;
+    color: #283818;
+  }
+  .autocomplete-item {
+    padding: 0.8rem;
+    cursor: pointer;
+  }
+  .autocomplete-item:hover {
+    background: #F5E6C5;
   }
   
   .search-button {
-    background-color: #fff;
-    color: #000;
-    border: 1px solid #ccc;
+    background-color: #D78B30;
+    color: #F5E6C5;
     border-radius:10px;
     font-size: 12px;
     cursor: pointer;
@@ -93,7 +121,9 @@
   }
   
   .search-button:hover {
-    background-color: #0056b3;
+    background-color: #F5E6C5;
+    color: #D78B30;
+    
   }
   
   .search-results {
@@ -101,9 +131,9 @@
     color: #666;
     padding:0 0 2vw 3vw;
     margin-top:-20px;
-    height: 65vh;
+    height: 70vh;
     width: 90%;
-    overflow:hidden;
+    overflow:visible;
     display: flex;
     flex-direction:row;
   }
@@ -112,7 +142,7 @@
     width: 70%;
     height: 100%;
     border-radius: 70px;
-    margin-top: 2vh;
+    margin-top: 5vh;
     border-radius: 20px;
     overflow: hidden;
   }
@@ -124,9 +154,15 @@
     width: 20%;
     height: 95%;
     border-radius: 20px;
-    margin-top: 2vh;
+    margin-top: 5vh;
     overflow: auto;
   }
+  .result list
+  .results-list-item{
+    display: flex;
+    flex-direction: row;
+  }
+
 
   .results-list h6{
     font-size: 14px;
@@ -168,3 +204,5 @@
   .autocomplete-item:hover {
     background: #f0f0f0;
   }
+
+  /* Style for the results list buttons container */

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap'); /* Import Poppins font */
+
 .vertical-nav {
     width: 15vw; /* Navigation bar takes 15% of the screen width */
     background: #fff;
@@ -9,53 +11,54 @@
     align-items: flex-start;
     height: 100vh; /* Ensure the nav bar spans the full height */
     overflow: hidden;
-  }
-/*
-Nav is poppins
-Heading and other text is figtree
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+}
 
-*/
-  .nav-container{ 
-    padding-top: 15vh;
+.nav-container { 
+    padding-top: 10vh;
     display: flex;
-    margin-left: 3vw;;
+    margin-left: 1vw;
     flex-direction: column;
     justify-content: start;
     align-items: left;
     width: 100%;
     height: 100%;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+}
 
-  }
-  
-  .nav-list {
+.nav-list {
     list-style: none;
     padding: 0;
     margin: 0;
     width: 100%;
-  }
-  
-  .nav-item {
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+}
+
+.nav-item {
     padding: 0 0 0.5vw 2vw;
     width: 100%;
     cursor: pointer;
     text-align: left;
-  }
-  
-  .nav-item:hover {
-    background: #d2cdcd;
-  }
+    font-weight:lighter;
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+}
 
-  hr{
-    color: #000;
-    width: 50%;
-    height: 0.5px;
-    background-color: #000;
-    left: 0;
-  }
+.nav-item:hover {
+    font-weight: bold;
+}
 
-  .logo-container {
+hr {
+    color: #D78B30;
+    width: 75%;
+    height: 0.75px;
+    background-color: #D78B30;
+    margin-left: 0;
+}
+
+.logo-container {
     display: flex;
     align-items: center;
-    margin:auto;
-    padding: 2vh 0 0 0;
-  }
+    padding: 2vh 0 0 2vh;
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+}
