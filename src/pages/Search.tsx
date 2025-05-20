@@ -1,11 +1,11 @@
 
 import { useState,useRef, useEffect } from 'react';
+import PageContent from './Page-Content.module.css'
 import Nav from '../components/Nav';
-import './Search.css'; // Create a CSS file for styling
+import'./Search.css'; // Rename the import to avoid conflict
 import {APIProvider, Map, AdvancedMarker, Pin, type MapEvent} from '@vis.gl/react-google-maps';
 import materials from '../assets/materials.json';
 import materials_categories from '../assets/materials_category.json';
-
 
 
 
@@ -169,163 +169,163 @@ const handleMaterialSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
   return (
     <div className="search-page">
       <Nav /> {/* Use the reusable VerticalNav component */}
-      <div className="page-content"> 
-        <div className="search-header">
-          <h1 className="search-title">Search for Waste</h1>
-          <hr color='black' ></hr>
-        </div>
-      <div className="search-container">
-       
-        <form className="search-form" onSubmit={handleFormSubmit}>
-          <label className="search-label"> Waste Category 
-          <select className="search-options" onInput={handleCategorySelected} >
-            {materials_categories.categories.map((category:string) => (
-              <option  value={category}>
-                {category}
-              </option>
-            ))}
-              
-            </select>
-          </label>
-          <label className="search-label"> Waste Product 
-            <select className="search-options" onInput={handleMaterialSelected} >
-              {selectedCategory && materials[selectedCategory as keyof typeof materials] && materials[selectedCategory as keyof typeof materials].map((material: string) => (
-                <option value={material}>
-                  {material}
+      <div className={PageContent['page-content']}> 
+          <h1 className={PageContent['page-title']}>Search for Waste</h1>
+          <hr className={PageContent['title-divider']} ></hr>
+        <div className="search-container">
+        
+          <form className="search-form" onSubmit={handleFormSubmit}>
+            <label className="search-label"> Waste Category 
+            <select className="search-options" onInput={handleCategorySelected} aria-placeholder='Select Category' defaultValue={'Select Category'} >
+              <option value="Select Category" disabled>Select Category</option>
+              {materials_categories.categories.map((category:string) => (
+                <option  value={category}>
+                  {category}
                 </option>
               ))}
-            </select>
-          </label>
-          <label className="search-label">Location
-            <input
-              type="text"
-              className="search-input"
-              placeholder="city, state, or zip code"
-              value={searchInput}
-              onChange={handleInputChange}/> 
-         
-            
-            {suggestions.length > 0 && (
-  <ul className="autocomplete-suggestions">
-    {suggestions.map((suggestion, index) => (
-      <li key={index} className="autocomplete-item" 
-      onClick={() => handleSuggestionClick(suggestion.mainText, suggestion.secondaryText)}
-      >
-        <strong>{suggestion.mainText}</strong>
-        <small> - {suggestion.secondaryText}</small>
-      </li>
-    ))}
-  </ul>
-)} </label>
-          <button type="submit" className="search-button" >           
-            Search
-          </button>
-        </form>
-        
-        <div className="search-results">
-          <div className="map-container">
-           
-            <APIProvider apiKey={'AIzaSyCNTXqcUhVTRxPdY-R6wvD82uijIGrn0Ew'} onLoad={() => console.log('Maps API has loaded.')}>
-             <Map  defaultZoom={8.5} 
-             defaultCenter={ position } 
-             center = {position} 
-             mapId='18c06d07085bfa77372f9448' 
-             draggableCursor="grab" 
-             onDragend={handleMapMove}
-             cameraControl={true} gestureHandling="cooperative" >
-              </Map>
-              <AdvancedMarker
-                position={position} >
-                <Pin
-                  background={'#283818'}
-                  borderColor={'#D78B30'}
-                  glyphColor={'#FFFFFF'}
-                  scale={2}
-                  />
-
-                </AdvancedMarker>
-                {results.map((chat, index) => (
-                  <AdvancedMarker
-                    key={index}
-                    position={chat.latlng}  >
-                    <Pin
-                      background={'#D78B30'}
-                      borderColor={'#D78B30'}
-                      glyphColor={'#FFFFFF'}
-                       
-                      />
-                  </AdvancedMarker>
+                
+              </select>
+            </label>
+            <label className="search-label"> Waste Product 
+              <select className="search-options" onInput={handleMaterialSelected} aria-placeholder='Select Material' defaultValue={'Select Material'} >
+                <option value="Select Material" disabled>Select Material</option>
+                {selectedCategory && materials[selectedCategory as keyof typeof materials] && materials[selectedCategory as keyof typeof materials].map((material: string) => (
+                  <option value={material} key={material} >
+                    {material}
+                  </option>
                 ))}
-            </APIProvider>
+              </select>
+            </label>
+            <label className="search-label">Location
+              <input
+                type="text"
+                className="search-input"
+                placeholder="city, state, or zip code"
+                value={searchInput}
+                onChange={handleInputChange}/> 
+          
               
-          </div>
-         
-          <ul className="results-list">
-  {results.filter((result) => {
-    const distance = calculateDistance(
-      position.lat,
-      position.lng,
-      result.latlng.lat,
-      result.latlng.lng
-    );
-    return distance <= 300; // Only include results within 300km
-  }).length === 0 ? (
-    <p className="no-results-message">No producers in the area.</p>
-  ) : (
-    results
-      .filter((result) => {
-        const distance = calculateDistance(
-          position.lat,
-          position.lng,
-          result.latlng.lat,
-          result.latlng.lng
-        );
-        return distance <= 300; // Only include results within 300km
-      })
-      .map((result, index) => {
-        const handleSaveClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-          const imgElement = e.currentTarget.querySelector('img');
-          if (imgElement) {
-            const currentSrc = imgElement.getAttribute('src');
-            const newSrc =
-              currentSrc === '/unopened_bookmark_icon.png'
-                ? '/save_bookmark_icon.png'
-                : '/unopened_bookmark_icon.png';
-            imgElement.setAttribute('src', newSrc); // Toggle the icon
-          }
-        };
-
-        return (
-          <li key={index} className="result-list-item">
-            <img src="/pin.png" alt="Pin" className="chat-list-image" style={{marginTop:'20px'}}/>
-            <div style={{marginLeft: '45px',marginTop:'-30px'}}>
-            <h6 className="chat-list-name">{result.name}</h6>
-            <p className="chat-list-preview">{result.material}</p>
-            <p className="chat-list-preview">{result.location}</p>
-            <p className="chat-list-preview">{result.cost}</p>
-            <div className="results-list-buttons">
-              {/* Image button for messaging */}
-              <button className="results-list-message">
-                <img src="/message_icon.png" alt="Message" className="message-icon" />
-              </button>
-              {/* Image button for saving */}
-              <button className="results-list-save" onClick={handleSaveClick}>
-                <img
-                  src="/unopened_bookmark_icon.png"
-                  alt="Unsaved"
-                  className="save-icon"
-                />
-              </button>
-            </div>
-            </div>
+              {suggestions.length > 0 && (
+              <ul className="autocomplete-suggestions">
+                {suggestions.map((suggestion, index) => (
+                  <li key={index} className="autocomplete-item" 
+                  onClick={() => handleSuggestionClick(suggestion.mainText, suggestion.secondaryText)}
+                  >
+                    <strong>{suggestion.mainText}</strong>
+                    <small> - {suggestion.secondaryText}</small>
+                  </li>
+                ))}
+              </ul>
+            )} </label>
+            <button type="submit" className="search-button" >           
+              Search
+            </button>
+          </form>
+          
+          <div className="search-results">
+            <div className="map-container">
             
-          </li>
-        );
-      })
-  )}
-</ul>
+              <APIProvider apiKey={'AIzaSyCNTXqcUhVTRxPdY-R6wvD82uijIGrn0Ew'} onLoad={() => console.log('Maps API has loaded.')}>
+              <Map  defaultZoom={8.5} 
+              defaultCenter={ position } 
+              center = {position} 
+              mapId='18c06d07085bfa77372f9448' 
+              draggableCursor="grab" 
+              onDragend={handleMapMove}
+              cameraControl={true} gestureHandling="cooperative" >
+                </Map>
+                <AdvancedMarker
+                  position={position} >
+                  <Pin
+                    background={'#283818'}
+                    borderColor={'#D78B30'}
+                    glyphColor={'#FFFFFF'}
+                    scale={2}
+                    />
+
+                  </AdvancedMarker>
+                  {results.map((chat, index) => (
+                    <AdvancedMarker
+                      key={index}
+                      position={chat.latlng}  >
+                      <Pin
+                        background={'#D78B30'}
+                        borderColor={'#D78B30'}
+                        glyphColor={'#FFFFFF'}
+                        
+                        />
+                    </AdvancedMarker>
+                  ))}
+              </APIProvider>
+                
+            </div>
+          
+            <ul className="results-list">
+              {results.filter((result) => {
+                const distance = calculateDistance(
+                  position.lat,
+                  position.lng,
+                  result.latlng.lat,
+                  result.latlng.lng
+                );
+                return distance <= 300; // Only include results within 300km
+              }).length === 0 ? (
+                <p className="no-results-message">No producers in the area.</p>
+              ) : (
+                results
+                  .filter((result) => {
+                    const distance = calculateDistance(
+                      position.lat,
+                      position.lng,
+                      result.latlng.lat,
+                      result.latlng.lng
+                    );
+                    return distance <= 300; // Only include results within 300km
+                  })
+                  .map((result, index) => {
+                    const handleSaveClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+                      const imgElement = e.currentTarget.querySelector('img');
+                      if (imgElement) {
+                        const currentSrc = imgElement.getAttribute('src');
+                        const newSrc =
+                          currentSrc === 'src/assets/unopened_bookmark_icon.png'
+                            ? 'src/assets/saved_bookmark_icon.png'
+                            : 'src/assets/unopened_bookmark_icon.png';
+                        imgElement.setAttribute('src', newSrc); // Toggle the icon
+                      }
+                    };
+
+                    return (
+                      <li key={index} className="result-list-item">
+                        <img src="/pin.png" alt="Pin" className="chat-list-image" style={{marginTop:'20px'}}/>
+                        <div style={{marginLeft: '45px',marginTop:'-30px'}}>
+                        <h6 className="chat-list-name">{result.name}</h6>
+                        <p className="chat-list-preview">{result.material}</p>
+                        <p className="chat-list-preview">{result.location}</p>
+                        <p className="chat-list-preview">{result.cost}</p>
+                        <div className="results-list-buttons">
+                          {/* Image button for messaging */}
+                          <button className="results-list-message">
+                            <img src="/message_icon.png" alt="Message" className="message-icon" />
+                          </button>
+                          {/* Image button for saving */}
+                          <button className="results-list-save" onClick={handleSaveClick}>
+                            <img
+                              src="src/assets/unopened_bookmark_icon.png"
+                              alt="Unsaved"
+                              className="save-icon"
+                            />
+                          </button>
+                        </div>
+                        </div>
+                        
+                      </li>
+                    );
+                  })
+              )}
+            </ul>
+          </div>
         </div>
-      </div>
       </div>
       
     </div>

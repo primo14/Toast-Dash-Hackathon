@@ -1,0 +1,37 @@
+:root {
+  --DarkGreen: #283818;
+  --LightGreen:#CECB78;
+  --EmeraldGreen: #00674F;
+  --Cream:#F5E6C5;
+  --PaleBrown:#9F886F;
+  --Orange:#D78B30;
+
+}
+.page-content{
+    background: var(--DarkGreen);
+    border-radius: 50px 0 0 50px;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 100vh;
+    padding-right:3.55vw;
+    padding-left: 3vw;
+}
+
+  
+  
+.page-title {
+    font-size: 2rem;
+    color:  var(--Cream);;
+    margin-bottom: 1rem;
+    text-align: left;
+    padding: 2vw 0 0 0;
+  }
+
+  .title-divider {
+    
+    background-color: var(--Cream);
+    width:100%;
+    margin-bottom:3vh;
+  }

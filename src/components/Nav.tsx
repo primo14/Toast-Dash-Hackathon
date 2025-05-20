@@ -1,5 +1,10 @@
 import './Nav.css'; // Create a CSS file for styling
 import Logo from '../assets/logo.png'; // Import your logo image
+import { Link } from 'react-router-dom';
+import MyListings from '../pages/My-Listings';
+import Saved from '../pages/Saved';
+import Search from '../pages/Search';
+import Messages from '../pages/Messages';
 
 const Nav = () => {
   return (
@@ -10,18 +15,18 @@ const Nav = () => {
       <div className='nav-container'>
         <p className="nav-subtitle">Producing Waste</p>
         <ul className="nav-list">
-          <li className="nav-item">My Listings</li>
-          <li className="nav-item">Add New Listing</li>
-          <li className="nav-item">Inquires</li>
-          <li className="nav-item">Sold</li>
+          <li><Link to='/My-Listings' className='nav-item' >My Listings</Link></li>
+          <li><Link to='/My-Listings' className='nav-item' >Add New Listing</Link></li>
+           <li><Link to='/My-Listings' className='nav-item' >Inquiries</Link></li>
+           <li><Link to='/My-Listings' className='nav-item' >Sold</Link></li>
         </ul>
         <hr ></hr>
         <p className="nav-subtitle" >Buying Waste</p>
         <ul className="nav-list">
-          <li className="nav-item"style={{ fontWeight: 'bold' }} >Search</li>
-          <li className="nav-item">Saved</li>
-          <li className="nav-item">Messages</li>
-          <li className="nav-item">Purchase History</li>
+          <li style={{ fontWeight: 'bold' }}><Link className='nav-item' to='/Search'>Search </Link> </li>
+          <li><Link to='/Saved' className='nav-item' >Saved</Link></li>
+          <li><Link to='/Messages' className='nav-item' >Messages</Link></li>
+          <li><Link to='' className='nav-item' >Purchase History</Link></li>
         </ul>
       </div>
      <div className="nav-footer"  style={{ paddingBottom: '4vh', paddingLeft: '4vh', display: 'flex', flexDirection:'row' }}>

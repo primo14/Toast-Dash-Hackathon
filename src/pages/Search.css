@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap);
-
+@import url("Page-Content.module.css");
 body, .search-page{
   font-family:'Figtree', sans-serif;
 }
@@ -9,41 +9,32 @@ body, .search-page{
     align-items: center;
     height: 100vh;
     overflow: hidden;
-    background-color: #FFF;
+    background-color: white;
     overflow: hidden;
+    width: 100vw;
   }
-  .page-content {
-    background: #283818;
-    border-radius: 50px 0 0 50px;
-    width: 80vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    height: 105vh;
-   padding-right:3.55vw;
-  }
+
   .search-header {
   
-   padding: 3vw 0 0 3vw ;
+   padding: 3vw 0 0 0 ;
     justify-content: left;
     align-items: left;
   }
   .search-header h1 {
     font-size: 2rem;
-    color: #F5E6C5;
+    color: var(--Cream);
     margin-bottom: 1rem;
   }
   .search-header hr{
     width: 95%;
     height: 1px;
-    background-color: #F5E6C5;
+    background-color: var(--Cream);
     border: none;
     margin-left: 0;;
     
   }
   .search-container {
     
-    padding : 1vw 0 0 3vw;
     border-radius: 8px;
     width: 100%;
     overflow:visible;
@@ -56,8 +47,8 @@ body, .search-page{
   
   .search-form {
     display: flex;
-    justify-content: left;
-    
+    justify-content: space-between;
+    width: 100%;
   }
   
   .search-options{
@@ -65,24 +56,28 @@ body, .search-page{
     height: 55%; 
     border: 1px solid #ccc;
     border-radius: 10px;
-    background-color: #fff;
-    color: #9F886F;
+    background-color: white;
+    color: var(--DarkGreen);
+  }
+
+   select.decorations  option:focus {
+    background-color: var(--Cream);
+    color: var(--DarkGreen);
   }
 
   .search-form label {
-    padding-left: 2vh;
     text-align: left;
     width: 27%;
     font-size: 16px;
     display: flex;
     flex-direction: column; 
-    color:#F5E6C5;
+    color:var(--Cream);
   }
   .search-input {
     width: 100%;
     border: 1px solid #ccc;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: white;
     font-size: 1rem;
     height:12% ;
     color: #283818;
@@ -90,7 +85,7 @@ body, .search-page{
   .search-form .autocomplete-suggestions {
     list-style: none;
     margin-top:5vh;
-    background: #fff;
+    background: white;
     border: 1px solid #ccc;
     border-radius: 4px;
     max-height: 200px;
@@ -106,12 +101,12 @@ body, .search-page{
     cursor: pointer;
   }
   .autocomplete-item:hover {
-    background: #F5E6C5;
+    background: var(--Cream);
   }
   
   .search-button {
-    background-color: #D78B30;
-    color: #F5E6C5;
+    background-color: var(--Orange);
+    color: var(--Cream);
     border-radius:10px;
     font-size: 12px;
     cursor: pointer;
@@ -121,26 +116,26 @@ body, .search-page{
   }
   
   .search-button:hover {
-    background-color: #F5E6C5;
-    color: #D78B30;
+    background-color: var(--Cream);
+    color: var(--Orange);
     
   }
   
   .search-results {
     font-size: 12px;
-    color: #666;
-    padding:0 0 2vw 3vw;
+    color: var(--DarkGreen);
+    padding:0 0 2vw 0 ;
     margin-top:-20px;
     height: 70vh;
-    width: 90%;
+    width: 100%;
     overflow:visible;
     display: flex;
     flex-direction:row;
   }
 
   .map-container {
-    width: 70%;
-    height: 100%;
+    width: 80%;
+    height: 90%;
     border-radius: 70px;
     margin-top: 5vh;
     border-radius: 20px;
@@ -149,10 +144,10 @@ body, .search-page{
   .results-list{
     margin-left: 2vw;
     padding: 2vw 2vw 0 2vw;
-    background-color: #fff;
+    background-color: white;
     list-style: none;
     width: 20%;
-    height: 95%;
+    height: 86%;
     border-radius: 20px;
     margin-top: 5vh;
     overflow: auto;

@@ -33,19 +33,34 @@
     margin: 0;
     width: 100%;
     font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+    gap: 0.5vw;
+    display:flex;
+    flex-direction: column;
 }
 
 .nav-item {
+    padding: 0 0 0 2vw;
+    width: 100%;
+    cursor: pointer;
+    text-align: left;
+    font-weight:lighter;
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+    color:#283818;
+}
+Link {
     padding: 0 0 0.5vw 2vw;
     width: 100%;
     cursor: pointer;
     text-align: left;
     font-weight:lighter;
     font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+    color:#283818;
 }
+
 
 .nav-item:hover {
     font-weight: bold;
+    color:#283818;
 }
 
 hr {
