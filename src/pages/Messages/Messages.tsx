@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import './Messages.css';
-import Nav from '../components/Nav'; 
-import '../components/Nav.css'
-import PageContent from './Page-Content.module.css'
-import '../assets/other_profile.svg' // Import your profile image
+import Nav from '../../components/Nav';
+import PageContent from '../Page-Content.module.css'
+import '../../assets/other_profile.svg' // Import your profile image
 
 const Messages = () => {
   const [messages, setMessages] = useState([
@@ -35,8 +34,11 @@ const Messages = () => {
     <div className="chat-page">
       <Nav /> {/* Use the reusable VerticalNav component */}
       <div className={PageContent['page-content']} >
-        <h1 className={PageContent['page-title']}>Messages</h1>
-        <hr className={PageContent['title-divider']} />
+        <div className={PageContent['page-header']}>
+          <h1 className={PageContent['page-title']}>Messages</h1>
+          <hr className={PageContent['title-divider']} />
+        </div>
+        
         <div className ="chatbox">
             <div className="chat-sidebar">
               <h2 className="chat-sidebar-title">Chats</h2>
@@ -103,7 +105,9 @@ const Messages = () => {
                   value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}
                 />
-                <button type="submit" className="chat-send-button">Send</button>
+                <button type="submit" className="chat-send-button">
+                  <img src="src/assets/send_icon.svg" alt="Send" className="send-icon" />
+                </button>
               </form>
             </div>
           </div>

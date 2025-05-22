@@ -1,11 +1,11 @@
 
 import { useState,useRef, useEffect } from 'react';
-import PageContent from './Page-Content.module.css'
-import Nav from '../components/Nav';
+import PageContent from '../Page-Content.module.css'
+import Nav from '../../components/Nav'; // Import your Nav component
 import'./Search.css'; // Rename the import to avoid conflict
 import {APIProvider, Map, AdvancedMarker, Pin, type MapEvent} from '@vis.gl/react-google-maps';
-import materials from '../assets/materials.json';
-import materials_categories from '../assets/materials_category.json';
+import materials from '../../assets/materials.json';
+import materials_categories from '../../assets/materials_category.json';
 
 
 
@@ -169,9 +169,11 @@ const handleMaterialSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
   return (
     <div className="search-page">
       <Nav /> {/* Use the reusable VerticalNav component */}
-      <div className={PageContent['page-content']}> 
+      <div className={PageContent['page-content']} >
+        <div className={PageContent['page-header']}>
           <h1 className={PageContent['page-title']}>Search for Waste</h1>
-          <hr className={PageContent['title-divider']} ></hr>
+          <hr className={PageContent['title-divider']} />
+        </div>
         <div className="search-container">
         
           <form className="search-form" onSubmit={handleFormSubmit}>

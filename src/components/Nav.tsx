@@ -1,10 +1,7 @@
 import './Nav.css'; // Create a CSS file for styling
 import Logo from '../assets/logo.png'; // Import your logo image
 import { Link } from 'react-router-dom';
-import MyListings from '../pages/My-Listings';
-import Saved from '../pages/Saved';
-import Search from '../pages/Search';
-import Messages from '../pages/Messages';
+
 
 const Nav = () => {
   return (
@@ -30,7 +27,7 @@ const Nav = () => {
         </ul>
       </div>
      <div className="nav-footer"  style={{ paddingBottom: '4vh', paddingLeft: '4vh', display: 'flex', flexDirection:'row' }}>
-      <img src ='profile.png' className="profile" width={50} height={50} />
+      <img src ='src/assets/my_profile.svg' className="profile" width={50} height={50} />
       <p className="nav-footer-text">My Profile</p>
     </div>
     </div>

@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap);
-@import url("Page-Content.module.css");
+@import url("../Page-Content.module.css");
 body, .search-page{
   font-family:'Figtree', sans-serif;
 }
@@ -47,6 +47,7 @@ body, .search-page{
   
   .search-form {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     width: 100%;
   }
@@ -59,6 +60,9 @@ body, .search-page{
     background-color: white;
     color: var(--DarkGreen);
   }
+  select.search-options{
+  height: calc(3vh + 55%);
+}
 
    select.decorations  option:focus {
     background-color: var(--Cream);
@@ -73,18 +77,20 @@ body, .search-page{
     flex-direction: column; 
     color:var(--Cream);
   }
-  .search-input {
+  .search-page .search-input {
     width: 100%;
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: white;
     font-size: 1rem;
-    height:12% ;
+    height:55% ;
     color: #283818;
+    margin:0;
+    padding:1.5vh;;
   }
   .search-form .autocomplete-suggestions {
     list-style: none;
-    margin-top:5vh;
+    margin-top:4.5rem;
     background: white;
     border: 1px solid #ccc;
     border-radius: 4px;
